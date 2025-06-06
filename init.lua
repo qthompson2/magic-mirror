@@ -11,8 +11,8 @@ MonitorController = require("bin.magic-mirror.controller")
 MonitorConnector = require("bin.magic-mirror.connector")
 
 return {
-	runRemoteMonitor = function(monitor_name, modem_side)
-		local controller = MonitorController:new(monitor_name)
+	runRemoteMonitor = function(identifier, monitor_name, modem_side)
+		local controller = MonitorController:new(identifier, monitor_name)
 		controller:run(modem_side)
 	end,
 	connectRemoteMonitor = function(monitor_name, modem_side)
