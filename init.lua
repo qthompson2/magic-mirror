@@ -221,10 +221,12 @@ function MonitorConnector:new(monitor_name, modem_side)
 	end
 	obj.modem_side = peripheral.getName(modem)
 
+	rednet.open(obj.modem_side)
 	obj.controller_id = rednet.lookup("wmp", monitor_name)
 	if not obj.controller_id then
 		error("MonitorConnector.new: No monitor controller found with name '" .. monitor_name .. "'.")
 	end
+	rednet.close(obj.modem_side)
 
 	local sendCommand = function(body)
 		rednet.open(obj.modem_side)
