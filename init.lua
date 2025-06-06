@@ -333,6 +333,12 @@ function MonitorConnector:new(monitor_name, modem_side)
 		sendCommand({command = "scroll", lines = lines})
 	end
 
+	setmetatable(obj, {
+		__name = "peripheral",
+		name = "RemoteMonitor:" .. monitor_name,
+		types = {"monitor", "RemoteMonitor"}
+	})
+
 	return obj
 end
 
