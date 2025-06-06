@@ -7,8 +7,8 @@ if not fs.exists("/bin/cc-output") then
 	shell.run("git-over-here qthompson2/cc-output /bin/cc-output")
 end
 
-MonitorController = require("controller")
-MonitorConnector = require("connector")
+MonitorController = require("bin.magic-mirror.controller")
+MonitorConnector = require("bin.magic-mirror.connector")
 
 return {
 	runRemoteMonitor = function(monitor_name, modem_side)
