@@ -333,3 +333,13 @@ function MonitorConnector:new(monitor_name, modem_side)
 
 	return obj
 end
+
+return {
+	runRemoteMonitor = function(monitor_name, modem_side)
+		local controller = MonitorController:new(monitor_name)
+		controller:run(modem_side)
+	end,
+	connectRemoteMonitor = function(monitor_name, modem_side)
+		return MonitorConnector:new(monitor_name, modem_side)
+	end
+}
